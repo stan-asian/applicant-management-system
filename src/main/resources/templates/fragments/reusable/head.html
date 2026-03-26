@@ -1,0 +1,15 @@
+<head th:fragment="head(pageName)">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${pageName}">Document</title>
+
+  <!-- FONT AWESOME -->
+  <script
+    src="https://kit.fontawesome.com/3489ea5da5.js"
+    crossorigin="anonymous"
+  ></script>
+  <!-- TAILWIND CDN (Reminder: This must be place before Tailwind Config Script) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- HEADER TAILWIND CONFIG -->
+  <script th:src="@{/js/tailwind.js}"></script>
+</head>

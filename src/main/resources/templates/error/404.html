@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script th:src="@{/js/tailwind.js}"></script>
+  </head>
+  <body
+    class="bg-cream min-h-screen font-body flex items-center justify-center px-4 py-16"
+  >
+    <div class="w-full max-w-md flex flex-col items-center gap-6 text-center">
+      <!-- Floating 404 number -->
+      <div class="animate-float select-none mb-10">
+        <span
+          class="font-display text-[9rem] font-bold leading-none text-flame/50"
+          style="letter-spacing: -0.04em"
+          >404</span
+        >
+      </div>
+
+      <!-- Icon + badge -->
+      <div class="flex flex-col items-center gap-3 -mt-10">
+        <div
+          class="w-14 h-14 rounded-2xl flex items-center justify-center"
+          style="
+            background: rgba(160, 58, 19, 0.08);
+            border: 1px solid rgba(160, 58, 19, 0.18);
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7 text-ember"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            <line x1="11" y1="8" x2="11" y2="11" />
+            <line x1="11" y1="14" x2="11.01" y2="14" />
+          </svg>
+        </div>
+
+        <span
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-ember uppercase tracking-wider"
+          style="
+            background: rgba(160, 58, 19, 0.08);
+            border: 1px solid rgba(160, 58, 19, 0.18);
+          "
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-flame animate-pulse"></span>
+          Page not found
+        </span>
+      </div>
+
+      <!-- Heading & description -->
+      <div class="flex flex-col gap-2 opacity-0 animate-fade-up-2">
+        <h1 class="font-display text-forest text-3xl font-bold">
+          We lost this page
+        </h1>
+        <p class="text-sm leading-relaxed opacity-60 text-forest">
+          The page you're looking for doesn't exist, was moved, or the link may
+          be broken.
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="flex items-center gap-3 w-full opacity-0 animate-fade-up-3">
+        <span
+          class="flex-1 h-px"
+          style="background: rgba(37, 79, 34, 0.15)"
+        ></span>
+        <span
+          class="text-xs font-medium uppercase tracking-widest"
+          style="color: rgba(37, 79, 34, 0.35)"
+          >what now?</span
+        >
+        <span
+          class="flex-1 h-px"
+          style="background: rgba(37, 79, 34, 0.15)"
+        ></span>
+      </div>
+
+      <!-- Actions -->
+      <div
+        class="flex flex-col sm:flex-row gap-3 w-full opacity-0 animate-fade-up-4"
+      >
+        <a
+          href="/"
+          class="group flex items-center justify-center gap-2.5 w-full px-5 py-3.5 rounded-xl font-semibold text-sm text-cream transition-all duration-200 hover:-translate-y-0.5"
+          style="
+            background: linear-gradient(135deg, #254f22 0%, #2d5e29 100%);
+            box-shadow: 0 2px 8px rgba(37, 79, 34, 0.25);
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Go to Homepage
+        </a>
+
+        <a
+          href="javascript:history.back()"
+          class="group flex items-center justify-center gap-2.5 w-full px-5 py-3.5 rounded-xl font-semibold text-sm text-forest transition-all duration-200 hover:-translate-y-0.5"
+          style="
+            border: 1px solid rgba(37, 79, 34, 0.22);
+            box-shadow: 0 1px 4px rgba(37, 79, 34, 0.07);
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Go Back
+        </a>
+      </div>
+
+      <!-- Footer credit -->
+      <p class="text-xs opacity-40 text-forest mt-2">
+        ApplicantMS &mdash; Built by
+        <span class="font-semibold">Narra Lab</span>
+      </p>
+    </div>
+  </body>
+</html>
