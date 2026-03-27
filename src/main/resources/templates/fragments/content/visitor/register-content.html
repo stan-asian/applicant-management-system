@@ -126,7 +126,7 @@
 
       <!-- Register Form -->
       <form
-        th:action="@{/registration}"
+        th:action="@{/register}"
         th:object="${userDTO}"
         method="post"
         class="flex flex-col gap-4"
@@ -539,7 +539,7 @@
       <p class="text-center text-sm" style="color: rgba(37, 79, 34, 0.55)">
         Already have an account?
         <a
-          href="/login"
+          th:href="@{/login}"
           class="font-semibold text-ember hover:text-flame transition-colors duration-200 ml-1"
         >
           Sign in here
