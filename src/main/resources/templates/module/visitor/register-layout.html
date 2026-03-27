@@ -5,9 +5,11 @@
     <nav th:replace="~{/fragments/navigation/header :: header()}"></nav>
 
     <main
-      th:replace="~{/fragments/content/visitor/register-content :: registerContent}"
+      th:replace="~{/fragments/content/visitor/register-content :: registerContent()}"
     ></main>
   </body>
 
   <script th:src="@{/js/menu.js}"></script>
+  <script th:src="@{/js/toastNotification.js}"></script>
+  <script th:src="@{/js/registrationForm.js}"></script>
 </html>

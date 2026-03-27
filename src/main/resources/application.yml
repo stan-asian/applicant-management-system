@@ -5,3 +5,9 @@ spring:
   datasource:
     url: ${DB_URL}
     driver-class-name: org.postgresql.Driver
+
+# For thymeleaf UI Debugging
+logging:
+  level:
+    org:
+      thymeleaf: DEBUG
