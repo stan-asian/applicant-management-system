@@ -9,7 +9,6 @@ public class LoginController {
 
     @GetMapping("/login")
     public String getMethodName(Model model) {
-        
         model.addAttribute("pageName", "Login");
         return "module/visitor/login-layout";
     }
