@@ -16,7 +16,10 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[3px]">
     <div class="flex items-center justify-between h-[68px] lg:h-20">
       <!-- ── LOGO ──────────────────────────────────────────── -->
-      <a th:href="@{/}" class="flex items-center gap-3 group select-none">
+      <a
+        th:href="@{/visitor/home}"
+        class="flex items-center gap-3 group select-none"
+      >
         <!-- Icon: briefcase + person silhouette -->
         <div class="relative w-10 h-10 flex-shrink-0">
           <svg
@@ -87,7 +90,7 @@
         <!-- Log In — ghost/outlined -->
 
         <a
-          th:href="@{/login}"
+          th:href="@{/visitor/login}"
           class="inline-flex items-center gap-2 px-4 py-[9px] rounded-lg text-cream/85 hover:text-cream text-sm font-medium border border-cream/20 hover:border-cream/45 hover:bg-white/[0.07] transition-all duration-250 active:scale-95"
         >
           <!-- Lock icon -->
@@ -109,7 +112,7 @@
 
         <!-- Create Account — flame filled -->
         <a
-          th:href="@{/register}"
+          th:href="@{/visitor/register}"
           class="btn-cta inline-flex items-center gap-2 px-5 py-[9px] rounded-lg bg-flame hover:bg-ember text-white text-sm font-semibold shadow-md shadow-black/20 hover:shadow-ember/40 transition-all duration-250 active:scale-95"
         >
           <!-- User-plus icon -->

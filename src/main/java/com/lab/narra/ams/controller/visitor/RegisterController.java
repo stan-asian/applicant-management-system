@@ -2,6 +2,7 @@ package com.lab.narra.ams.controller.visitor;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.lab.narra.ams.model.dto.UserRegistrationDTO;
 import com.lab.narra.ams.service.RegistrationService;
@@ -13,6 +14,7 @@ import jakarta.validation.Valid;
 
 
 @Controller
+@RequestMapping("/visitor")
 public class RegisterController {
 
     private final RegistrationService registrationService;

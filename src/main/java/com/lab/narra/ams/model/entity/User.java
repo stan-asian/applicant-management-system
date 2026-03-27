@@ -73,4 +73,9 @@ public class User {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
+    public User orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
 }
