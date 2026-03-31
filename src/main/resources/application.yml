@@ -6,8 +6,15 @@ spring:
     url: ${DB_URL}
     driver-class-name: org.postgresql.Driver
 
-# For thymeleaf UI Debugging
-logging:
-  level:
-    org:
-      thymeleaf: DEBUG
+  # Spring Mail Config (For Bean Creation)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: stanleypanag18@gmail.com
+    password: ${GOOGLE_APP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

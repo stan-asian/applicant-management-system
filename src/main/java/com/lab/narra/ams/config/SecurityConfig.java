@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.lab.narra.ams.service.CustomUserDetailsService;
+import com.lab.narra.ams.service.user.CustomUserDetailsService;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/css/**", "/js/**").permitAll()
                         .requestMatchers("/user/**").authenticated()
                         .anyRequest().authenticated())
-                .userDetailsService(userDetailsService) // 👈 THIS is the key connection
+                .userDetailsService(userDetailsService)
                 .formLogin(form -> form
                         .loginPage("/visitor/login")
                         .loginProcessingUrl("/login")

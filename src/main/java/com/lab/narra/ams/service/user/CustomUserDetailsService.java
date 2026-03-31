@@ -1,4 +1,4 @@
-package com.lab.narra.ams.service;
+package com.lab.narra.ams.service.user;
 
 import java.util.List;
 

@@ -8,8 +8,8 @@ tailwind.config = {
         cream: "#EDE4C2",
       },
       fontFamily: {
-        display: ['"Playfair Display"', "serif"],
-        body: ['"DM Sans"', "sans-serif"],
+        display: ['"Poppins"', "Arial"],
+        body: ['"Poppins"', "Arial"],
       },
       keyframes: {
         fadeDown: {
