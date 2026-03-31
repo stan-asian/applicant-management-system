@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Your Password — ApplicaTrack</title>
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #d9d4be;
+      font-family:
+        &quot;DM Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    "
+  >
+    <!-- Hidden inbox preview text -->
+    <div
+      style="
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        font-size: 1px;
+        line-height: 1px;
+      "
+    >
+      Reset your ApplicaTrack password — this link expires in 30 minutes.
+    </div>
+
+    <!-- Outer wrapper -->
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #d9d4be; padding: 48px 16px"
+    >
+      <tr>
+        <td align="center">
+          <!-- ═══════════════════════════════════ -->
+          <!--  CARD                               -->
+          <!-- ═══════════════════════════════════ -->
+          <table
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            style="width: 100%; max-width: 560px"
+          >
+            <!-- ── HEADER ── -->
+            <tr>
+              <td
+                style="
+                  background-color: #254f22;
+                  border-radius: 20px 20px 0 0;
+                  padding: 48px 44px 40px 44px;
+                  text-align: center;
+                "
+              >
+                <!-- App name -->
+                <p
+                  style="
+                    margin: 0 0 24px 0;
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    color: rgba(237, 228, 194, 0.55);
+                  "
+                >
+                  ApplicaTrack
+                </p>
+
+                <!-- Title -->
+                <h1
+                  style="
+                    margin: 0 0 10px 0;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: #ede4c2;
+                    font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                    line-height: 1.2;
+                    letter-spacing: -0.01em;
+                  "
+                >
+                  Password Reset
+                </h1>
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 13px;
+                    color: rgba(237, 228, 194, 0.55);
+                    line-height: 1.5;
+                  "
+                >
+                  We received a request to reset your password
+                </p>
+              </td>
+            </tr>
+            <!-- ── END HEADER ── -->
+
+            <!-- ── BODY ── -->
+            <tr>
+              <td
+                style="background-color: #ede4c2; padding: 40px 44px 36px 44px"
+              >
+                <!-- Greeting -->
+                <p
+                  style="
+                    margin: 0 0 8px 0;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #254f22;
+                  "
+                >
+                  Hi <span th:text="${firstName}">John</span>,
+                </p>
+                <p
+                  style="
+                    margin: 0 0 28px 0;
+                    font-size: 14px;
+                    line-height: 1.75;
+                    color: rgba(37, 79, 34, 0.72);
+                  "
+                >
+                  Someone requested a password reset for your
+                  <strong style="color: #254f22; font-weight: 600"
+                    >ApplicaTrack</strong
+                  >
+                  account. If this was you, click the button below to choose a
+                  new password. This link will expire in
+                  <strong style="color: #254f22">30 minutes</strong>.
+                </p>
+
+                <!-- CTA Button -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 0 auto 32px auto"
+                >
+                  <tr>
+                    <td
+                      style="
+                        border-radius: 13px;
+                        background-color: #a03a13;
+                        box-shadow: 0 4px 16px rgba(37, 79, 34, 0.22);
+                      "
+                    >
+                      <a
+                        th:href="${resetLink}"
+                        style="
+                          display: inline-block;
+                          padding: 15px 42px;
+                          color: #ede4c2;
+                          font-size: 14px;
+                          font-weight: 700;
+                          text-decoration: none;
+                          letter-spacing: 0.02em;
+                          border-radius: 13px;
+                        "
+                      >
+                        Reset My Password
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Divider with label -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width: 100%; margin-bottom: 20px"
+                >
+                  <tr>
+                    <td
+                      style="border-bottom: 1px solid rgba(37, 79, 34, 0.18)"
+                    ></td>
+                    <td
+                      style="
+                        white-space: nowrap;
+                        padding: 0 14px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 0.14em;
+                        text-transform: uppercase;
+                        color: rgba(37, 79, 34, 0.38);
+                        vertical-align: middle;
+                      "
+                    >
+                      or copy the link
+                    </td>
+                    <td
+                      style="border-bottom: 1px solid rgba(37, 79, 34, 0.18)"
+                    ></td>
+                  </tr>
+                </table>
+
+                <!-- Fallback link box -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width: 100%; margin-bottom: 16px"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: rgba(37, 79, 34, 0.07);
+                        border: 1px solid rgba(37, 79, 34, 0.16);
+                        border-radius: 12px;
+                        padding: 14px 16px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0 0 5px 0;
+                          font-size: 10px;
+                          font-weight: 700;
+                          letter-spacing: 0.1em;
+                          text-transform: uppercase;
+                          color: rgba(37, 79, 34, 0.45);
+                        "
+                      >
+                        Reset link
+                      </p>
+                      <p
+                        style="
+                          margin: 0;
+                          font-size: 11.5px;
+                          font-family:
+                            &quot;Courier New&quot;, Courier, monospace;
+                          color: #a03a13;
+                          word-break: break-all;
+                          line-height: 1.6;
+                        "
+                        th:text="${resetLink}"
+                      >
+                        https://applicatrack.com/reset-password?token=abc123...
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Warning box (ember) -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width: 100%; margin-bottom: 12px"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: rgba(160, 58, 19, 0.07);
+                        border: 1px solid rgba(160, 58, 19, 0.2);
+                        border-radius: 12px;
+                        padding: 13px 16px;
+                      "
+                    >
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              padding-right: 10px;
+                              padding-top: 2px;
+                            "
+                          >
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="#A03A13"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <line x1="12" y1="8" x2="12" y2="12" />
+                              <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg>
+                          </td>
+                          <td
+                            style="
+                              font-size: 12px;
+                              line-height: 1.65;
+                              color: #a03a13;
+                            "
+                          >
+                            If you didn't request this, you can safely ignore
+                            this email — your password will
+                            <strong>not</strong> be changed.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Security box (forest) -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="width: 100%"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: rgba(37, 79, 34, 0.07);
+                        border: 1px solid rgba(37, 79, 34, 0.16);
+                        border-radius: 12px;
+                        padding: 13px 16px;
+                      "
+                    >
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              padding-right: 10px;
+                              padding-top: 2px;
+                            "
+                          >
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="#254F22"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                              />
+                            </svg>
+                          </td>
+                          <td
+                            style="
+                              font-size: 12px;
+                              line-height: 1.65;
+                              color: rgba(37, 79, 34, 0.75);
+                            "
+                          >
+                            This link is
+                            <strong style="color: #254f22">single-use</strong>
+                            and expires in
+                            <strong style="color: #254f22">30 minutes</strong>.
+                            Never share it with anyone — ApplicaTrack will never
+                            ask for this link.
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- ── END BODY ── -->
+
+            <!-- ── FOOTER ── -->
+            <tr>
+              <td
+                style="
+                  background-color: #254f22;
+                  border-top: 1px solid rgba(237, 228, 194, 0.12);
+                  border-radius: 0 0 20px 20px;
+                  padding: 24px 44px;
+                  text-align: center;
+                "
+              >
+                <p
+                  style="
+                    margin: 0 0 4px 0;
+                    font-size: 11.5px;
+                    color: rgba(237, 228, 194, 0.5);
+                    line-height: 1.6;
+                  "
+                >
+                  This email was sent to
+                  <strong
+                    style="color: rgba(237, 228, 194, 0.75)"
+                    th:text="${firstName + ' ' + lastName}"
+                    >John Doe</strong
+                  >.
+                </p>
+                <p
+                  style="
+                    margin: 0 0 14px 0;
+                    font-size: 11px;
+                    color: rgba(237, 228, 194, 0.32);
+                    line-height: 1.6;
+                  "
+                >
+                  If you have questions, please contact our support team.
+                </p>
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 11px;
+                    color: rgba(237, 228, 194, 0.35);
+                  "
+                >
+                  &copy; 2025
+                  <strong style="color: rgba(237, 228, 194, 0.55)"
+                    >ApplicaTrack</strong
+                  >
+                  &mdash; Built by
+                  <strong style="color: rgba(237, 228, 194, 0.55)"
+                    >Narra Lab</strong
+                  >
+                </p>
+              </td>
+            </tr>
+            <!-- ── END FOOTER ── -->
+          </table>
+          <!-- END CARD -->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

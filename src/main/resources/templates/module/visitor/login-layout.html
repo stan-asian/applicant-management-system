@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head th:replace="~{/fragments/reusable/head :: head(${pageName})}"></head>
+  <head th:replace="~{/fragments/reusable/head :: head('Login')}"></head>
   <body>
     <!-- Header -->
     <header th:replace="~{/fragments/navigation/header :: header}"></header>
@@ -11,5 +11,6 @@
   </body>
 
   <script th:src="@{/js/menu.js}"></script>
+  <script th:src="@{/js/toastNotification.js}"></script>
   <script th:src="@{/js/passwordVisibilityToggle.js}"></script>
 </html>
