@@ -11,7 +11,7 @@ public class UserMapper {
 
     private final PasswordEncoder passwordEncoder;
 
-    public UserMapper(PasswordEncoder passwordEncoder){
+    public UserMapper(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -23,8 +23,11 @@ public class UserMapper {
     }
 
     // EXPOSED: Fname, Lname, Email
-    public UserDTO UsertoDTO(User user){
-        // Dont return a password since it is obvious to not return a sensitive information in the controller
-        return new UserDTO().setFirstName(user.getFirstName()).setLastName(user.getLastName()).setEmail(user.getEmail());
+    public UserDTO UsertoDTO(User user) {
+        // Dont return a password since it is obvious to not return a sensitive
+        // information in the controller
+        return new UserDTO().setFirstName(user.getFirstName())
+                .setLastName(user.getLastName())
+                .setEmail(user.getEmail());
     }
 }

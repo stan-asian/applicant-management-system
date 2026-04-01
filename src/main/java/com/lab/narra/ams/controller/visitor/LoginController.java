@@ -1,7 +1,6 @@
 package com.lab.narra.ams.controller.visitor;
 
 import com.lab.narra.ams.service.user.UserService;
-import com.lab.narra.ams.service.user.UserServiceImp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lab.narra.ams.model.dto.UserDTO;
 import com.lab.narra.ams.service.email.EmailService;
@@ -55,6 +53,9 @@ public class LoginController {
         }
 
         UserDTO user = userService.getUserByEmail(userDto.getEmail());
+
+        // Genearate Token
+        
 
         Map<String, Object> vars = new HashMap<>();
         vars.put("firstName", user.getFirstName());
