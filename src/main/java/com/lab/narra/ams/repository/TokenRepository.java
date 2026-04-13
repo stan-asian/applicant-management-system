@@ -7,5 +7,5 @@ import com.lab.narra.ams.model.entity.Token;
 
 @Repository
 public interface TokenRepository extends JpaRepository<Token, Long> {
-    
+    Token findByToken(String token);
 }

@@ -2,47 +2,36 @@ package com.lab.narra.ams.model.entity;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "token_tbl")
 public class Token {
-    
+
     @Id
-    private Long tokenId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    // Here you can also fetch user using token id
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "token_id")
-    private User user;
-
-    @Column(name = "token", updatable = false)
+    @Column(name = "token", nullable = false, unique = true)
     private String token;
 
-    @Column(name = "expiry_date", updatable = false)
+    @Column(name = "expiry_date", nullable = false)
     private LocalDateTime expiryDate;
 
-    public Long getTokenId() {
-        return tokenId;
-    }
+    @Column(name = "is_used")
+    private boolean used = false;
 
-    public Token setTokenId(Long tokenId) {
-        this.tokenId = tokenId;
-        return this;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    // getters & setters
 
     public String getToken() {
         return token;
     }
 
-    public Token setToken (String token) {
+    public Token setToken(String token) {
         this.token = token;
         return this;
     }
@@ -56,5 +45,22 @@ public class Token {
         return this;
     }
 
+    public boolean isUsed() {
+        return used;
+    }
+
+    public Token setUsed(boolean used) {
+        this.used = used;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Token setUser(User user) {
+        this.user = user;
+        return this;
+    }
 
 }
