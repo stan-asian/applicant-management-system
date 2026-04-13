@@ -5,17 +5,20 @@ import com.lab.narra.ams.model.dto.UserDTO;
 import com.lab.narra.ams.model.entity.User;
 import com.lab.narra.ams.repository.UserRepository;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImp implements UserService {
     
+    private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
     private final UserRepository userRepository;
 
-    public UserServiceImp(UserRepository userRepository, UserMapper userMapper){
+    public UserServiceImp(UserRepository userRepository, UserMapper userMapper, PasswordEncoder passwordEncoder){
         this.userRepository = userRepository;
         this.userMapper = userMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -30,12 +33,21 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public UserDTO getUserByEmail(String email){
+    public User getUserByEmail(String email){
         User user = userRepository.findByEmail(email);
         if(user != null){
-            return userMapper.UsertoDTO(user);
+            return user;
         }
         return null;
+    }
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+        if (user != null) {
+            String encodedPassword = passwordEncoder.encode(newPassword);
+            user.setPassword(encodedPassword);
+            userRepository.save(user);
+        }
     }
     
 }

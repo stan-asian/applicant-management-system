@@ -24,7 +24,7 @@ public class UserMapper {
 
     // EXPOSED: Fname, Lname, Email
     public UserDTO UsertoDTO(User user) {
-        // Dont return a password since it is obvious to not return a sensitive
+        // Dont return a password since it is obvious to not return a sensitive data
         // information in the controller
         return new UserDTO().setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())

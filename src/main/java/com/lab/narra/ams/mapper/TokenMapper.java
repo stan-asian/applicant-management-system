@@ -9,9 +9,11 @@ import com.lab.narra.ams.model.entity.Token;
 public class TokenMapper {
 
     public Token DTOtoToken(TokenDTO tokenDto) {
-        return new Token().setTokenId(tokenDto.getTokenId())
+        return new Token()
                 .setToken(tokenDto.getToken())
-                .setExpiryDate(tokenDto.getExpiryDate());
+                .setExpiryDate(tokenDto.getExpiryDate())
+                .setUsed(tokenDto.isUsed())
+                .setUser(tokenDto.getUser());
     }
 
 }
