@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 @Controller
 @RequestMapping("/visitor")
 public class LoginController {
@@ -42,7 +41,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        if(!model.containsAttribute("userDTO")){
+        if (!model.containsAttribute("userDTO")) {
             model.addAttribute("userDTO", new UserDTO());
         }
         return "module/visitor/login-layout";
@@ -50,7 +49,7 @@ public class LoginController {
 
     @PostMapping("/recover")
     public String sendEmailToChangePassword(@Valid @ModelAttribute("userDTO") UserDTO userDto, BindingResult result,
-             RedirectAttributes redirectAttributes, Model model) {
+            RedirectAttributes redirectAttributes, Model model) {
 
         if (result.hasFieldErrors("email")) {
             model.addAttribute("userDTO", new UserDTO());
@@ -71,7 +70,7 @@ public class LoginController {
         // Create new TokenDTO Object
         TokenDTO tokenDTO = new TokenDTO();
 
-        tokenDTO.setToken(token);   
+        tokenDTO.setToken(token);
 
         // Save token to the Database
         tokenServiceImp.saveToken(tokenDTO, user);
@@ -80,14 +79,14 @@ public class LoginController {
         vars.put("firstName", user.getFirstName());
         vars.put("lastName", user.getLastName());
         vars.put("resetLink", "http://localhost:8080/visitor/resetPassword?token=" + token);
-        
+
         // Send Email
         emailService.sendHtmlEmail(
                 user.getEmail(),
                 "ApplicaTrack: Reset Password Link",
                 "email/reset-pass-email-temp",
                 vars);
-                
+
         redirectAttributes.addFlashAttribute("successMessage", "Email Successfully Sent.");
         return "redirect:/visitor/login";
     }
@@ -97,22 +96,30 @@ public class LoginController {
 
         Token userToken = tokenServiceImp.getTokenByTokenString(token);
 
-        // check of token is expired and did not matched the token in the database
-        if(userToken == null || userToken.getExpiryDate().isBefore(java.time.LocalDateTime.now())) {
+        // check if token is valid
+        if (userToken == null) {
+            model.addAttribute("errorType", "Invalid Token.");
+            return "email/reset-pass-invalid-token";
+        }
+
+        // check if token is expired
+        if(userToken.getExpiryDate().isBefore(java.time.LocalDateTime.now())) {
+            model.addAttribute("errorType", "EXPIRED");
             return "email/reset-pass-invalid-token";
         }
 
         model.addAttribute("token", token);
         return "email/reset-pass-web-page";
     }
-    
+
     @PostMapping("/resetPassword")
-    public String resetPassword(@RequestParam("token") String token, @RequestParam("confirmPassword") String password, RedirectAttributes redirectAttributes) {
+    public String resetPassword(@RequestParam("token") String token, @RequestParam("confirmPassword") String password,
+            RedirectAttributes redirectAttributes, Model model) {
 
         Token userToken = tokenServiceImp.getTokenByTokenString(token);
 
         // check of token is expired and did not matched the token in the database
-        if(userToken == null || userToken.getExpiryDate().isBefore(java.time.LocalDateTime.now())) {
+        if (userToken == null || userToken.getExpiryDate().isBefore(java.time.LocalDateTime.now())) {
             return "email/reset-pass-invalid-token";
         }
 

@@ -18,9 +18,6 @@ public class Token {
     @Column(name = "expiry_date", nullable = false)
     private LocalDateTime expiryDate;
 
-    @Column(name = "is_used")
-    private boolean used = false;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -42,15 +39,6 @@ public class Token {
 
     public Token setExpiryDate(LocalDateTime expiryDate) {
         this.expiryDate = expiryDate;
-        return this;
-    }
-
-    public boolean isUsed() {
-        return used;
-    }
-
-    public Token setUsed(boolean used) {
-        this.used = used;
         return this;
     }
 

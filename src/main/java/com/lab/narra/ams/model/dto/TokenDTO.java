@@ -7,7 +7,6 @@ import com.lab.narra.ams.model.entity.User;
 public class TokenDTO {
     private String token;
     private LocalDateTime expiryDate;
-    private boolean used;
     private User user;
 
     // Getters and Setters
@@ -28,16 +27,6 @@ public class TokenDTO {
 
     public TokenDTO setExpiryDate(LocalDateTime expiryDate) {
         this.expiryDate = expiryDate;
-        return this;
-
-    }
-
-    public boolean isUsed() {
-        return used;
-    }
-
-    public TokenDTO setUsed(boolean used) {
-        this.used = used;
         return this;
 
     }
