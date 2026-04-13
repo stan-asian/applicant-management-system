@@ -12,7 +12,6 @@ public class TokenMapper {
         return new Token()
                 .setToken(tokenDto.getToken())
                 .setExpiryDate(tokenDto.getExpiryDate())
-                .setUsed(tokenDto.isUsed())
                 .setUser(tokenDto.getUser());
     }
 
