@@ -1,3 +1,7 @@
+# Project Status:
+
+"This project is still on progress for building some features like jobs timeline, application for jobs, and as HR/as Applicant modules. The documentation only covers the early stage of the project built using v0, a collaborative AI Assistant owned by Vercel ". -Stanley Panag
+
 # Applicant Management System (AMS)
 
 A Spring Boot web application for managing applicants with user authentication, registration, and password recovery features.
