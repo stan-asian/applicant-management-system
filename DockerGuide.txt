@@ -1,0 +1,166 @@
+DOCKER NOTES (SPRING BOOT GUIDE)
+
+CORE CONCEPTS
+
+IMAGE
+A Docker image is a read-only blueprint used to create containers
+It is built using a Dockerfile
+It usually contains the compiled Spring Boot .jar file
+
+Think of it as: packaged application template
+Important: Images do NOT run by themselves
+
+CONTAINER
+A container is a running instance of an image
+This is where your application actually executes
+
+Think of it as: running application instance
+
+BUILDING A SPRING BOOT IMAGE
+
+STEP 1: Create Dockerfile (root directory)
+
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
+
+What it does:
+
+Uses Java runtime
+Copies Spring Boot jar
+Defines how to run the application
+
+STEP 2: Build Image
+
+CMD: docker build -t applicant-management-system .
+
+What it does:
+
+Reads Dockerfile
+Creates an image
+Tags it as applicant-management-system
+
+STEP 3: Check Images
+
+CMD: docker images
+
+What it does:
+
+Lists all Docker images in your system
+
+RUNNING CONTAINERS (VIA DOCKER COMPOSE - RECOMMENDED)
+
+Instead of manually running containers, we use Docker Compose.
+
+DOCKER COMPOSE FILE
+
+docker-compose.yml
+
+Used to define and run one or more containers together.
+
+version: '3.8'
+
+services:
+app:
+image: applicant-management-system
+ports:
+- "8080:8080"
+environment:
+DB_URL: jdbc:postgresql://db:5432/mydb
+DB_USER: postgres
+DB_PASS: secret
+
+What it does:
+
+Runs the Spring Boot application container
+Maps port 8080
+Injects environment variables
+
+RUN COMPOSE (MAIN COMMAND)
+
+CMD: docker compose up
+
+What it does:
+
+Creates containers from defined services
+Connects services (networking)
+Starts everything automatically
+
+RUN COMPOSE IN BACKGROUND
+
+CMD: docker compose up -d
+
+-d = detached mode (runs in background)
+
+STOP COMPOSE
+
+CMD: docker compose down
+
+What it does:
+
+Stops all containers
+Removes network created by compose
+
+CONTAINER MANAGEMENT
+
+List running containers
+
+docker ps
+
+List all containers (including stopped)
+
+docker ps -a
+
+Stop container (manual use only)
+
+docker stop container_id
+
+Remove container
+
+docker rm container_id
+
+IMPORTANT RELATIONSHIP
+
+Dockerfile -> builds -> Image -> runs via Compose -> Container
+
+One image can create multiple containers:
+
+development instance
+testing instance
+production instance
+
+MOST USED DOCKER FLAGS
+
+Run flags (used in docker run, rarely needed with compose):
+-d = run in background
+-p = port mapping
+-e = environment variable
+--name = container name (NOT recommended in compose)
+--rm = auto remove container after stop
+-it = interactive terminal
+
+Build flags:
+-t = tag image name
+
+Example:
+docker build -t my-app:v1 .
+
+SPRING BOOT FLOW (MODERN APPROACH)
+
+mvn clean package
+docker build -t applicant-management-system .
+docker compose up
+
+OR (background):
+docker compose up -d
+
+END OF NOTES
+
+💡 Key improvement I made for you
+Removed docker run as the primary workflow
+Made docker compose up the standard execution method
+Corrected command syntax (docker build -t ...)
+Clarified real production flow
+Aligned everything to modern Docker usage
