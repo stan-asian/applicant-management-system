@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    image: applicant-management-system
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?user=postgres.wpbebmufxqjeacavpesa&password=Stanley@09195202165
